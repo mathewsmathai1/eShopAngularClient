@@ -1,0 +1,41 @@
+<!--Divison to display Categories. 
+This division will be hidden when a category is selected and 
+the Product list division will be diaplyed-->
+<div *ngIf="displayCategoryList">
+  <div
+    *ngFor="let item of categoryList"
+    (click)="getProductList(item)"
+    style="clear: both; margin: 20px"
+  >
+    <h2 class="category_element" id="{{ getId(item) }}">
+      {{ getKey(item) }}
+    </h2>
+  </div>
+</div>
+<!--Divison to display Products in a Category. 
+This division will be displayed when a category is clicked on from the above list-->
+<div *ngIf="displayProductList" style="clear: both">
+  <h2>
+    Page <span style="color: red">{{ page }}</span> Of
+    <span style="color: red">{{ currentCategory }}</span>
+  </h2>
+  <div *ngFor="let product of productList">
+    <h2 class="product_element" id="{{ product?.Product_id }}">
+      {{ product?.Product_name }} || {{ product?.Product_id }} ||
+      {{ product?.Category_id }}
+    </h2>
+  </div>
+  <div *ngFor="let page of pageArray">
+    <a
+      (click)="getNextPage(page)"
+      style="
+        float: left;
+        padding-right: 10px;
+        cursor: pointer;
+        color: blue;
+        text-decoration: underline;
+      "
+      >{{ page }}</a
+    >
+  </div>
+</div>

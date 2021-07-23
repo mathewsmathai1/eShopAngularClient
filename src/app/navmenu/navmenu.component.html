@@ -1,0 +1,10 @@
+<div style="clear: both">
+  <div
+    class="navmenu"
+    *ngFor="let item of navList"
+    style="float: left; padding-right: 20px"
+  >
+    <a (click)="navHandler(item, $event)">{{ item }} </a>
+  </div>
+</div>
+<br />
