@@ -108,7 +108,6 @@ export class CategoryComponent implements OnInit {
     console.log('Inside async');
     this.pageArray = [];
     this.page = 1;
-    let counter = 0;
     let link = BASE_API_URL + '/categories';
     console.log('LINK: ' + link);
     this.categoryList = [];
